@@ -1,0 +1,23 @@
+{{#each posts}}
+<article>
+  <h2>{{title}}</h2>
+  <p>{{content}}</p>
+  <p>Posted by {{User.username}} on {{formatDate createdAt}}</p>
+  {{#if user}}
+  <form action="/delete-post/{{id}}" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+  {{/if}}
+</article>
+{{/each}}
+{{#if user}}
+<form action="/add-post" method="POST">
+  <label for="title">Title:</label>
+  <input type="text" name="title" id="title" required>
+  <label for="content">Content:</label>
+  <textarea name="content" id="content" required></textarea>
+  <button type="submit">Add Post</button>
+</form>
+{{else}}
+<p>You need to login or sign up to add posts</p>
+{{/if}}
