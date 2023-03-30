@@ -1,5 +1,8 @@
 const router = require('express').Router();
+const userRoutes = require('./userRoutes');
+const postRoutes = require('./postRoutes');
 
-// TODO: add API routes for getting and creating posts and comments
+router.use('/users', userRoutes);
+router.use('/post', postRoutes);
 
 module.exports = router;
