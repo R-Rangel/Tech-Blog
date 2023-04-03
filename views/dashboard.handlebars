@@ -10,7 +10,7 @@
   {{/if}}
 </article>
 {{/each}}
-{{#if logged_in}}
+{{#if user}}
 <form action="/add-post" method="POST">
   <label for="title">Title:</label>
   <input type="text" name="title" id="title" required>

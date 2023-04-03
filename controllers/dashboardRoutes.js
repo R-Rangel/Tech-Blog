@@ -4,13 +4,13 @@ const { Post, Comment, User } = require('../models');
 // GET all posts associated with the current user
 router.get('/', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.userId, {
-      include: [{ model: Post, include: [Comment] }],
-    });
+    // const userData = await User.findByPk(req.session.userId, {
+    //   include: [{ model: Post, include: [Comment] }],
+    // });
 
-    const user = userData.get({ plain: true });
+    // const user = userData.get({ plain: true });
 
-    res.render('dashboard', { user, loggedIn: req.session.loggedIn });
+    res.render('dashboard');
   } catch (err) {
     res.status(500).json(err);
   }
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
 // GET the page to create a new post
 router.get('/new-post', (req, res) => {
-  res.render('new-post', { loggedIn: req.session.loggedIn });
+  res.render('new-post', { logged_in: req.session.logged_in });
 });
 
 // GET the page to edit an existing post
@@ -33,7 +33,7 @@ router.get('/edit-post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    res.render('edit-post', { post, loggedIn: req.session.loggedIn });
+    res.render('edit-post', { post, logged_in: req.session.logged_in });
   } catch (err) {
     res.status(500).json(err);
   }
