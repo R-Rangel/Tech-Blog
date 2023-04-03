@@ -39,7 +39,7 @@ router.get('/post/:id', async (req, res) => {
 // GET the login page
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect('/homepage');
     return;
   }
 
@@ -49,7 +49,7 @@ router.get('/login', (req, res) => {
 // GET the signup page
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/dashboard');
+    res.redirect('/homepage');
     return;
   }
 

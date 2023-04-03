@@ -35,14 +35,14 @@ router.get('/post/:id', async (req, res) => {
 });
 
 // Get dashboard for logged in user
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/homepage', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: { user_id: req.session.user_id },
       include: [{ model: User }],
     });
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('dashboard', { 
+    res.render('homepage', { 
       posts, 
       loggedIn: true 
     });

@@ -9,22 +9,19 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/">Home</a>
-      {{#if user}}
-      <a href="/dashboard">Dashboard</a>
-      <a href="/logout">Logout</a>
-      {{else}}
-      <a href="/login">Login/Signup</a>
-      {{/if}}
-    </nav>
-  </header>
-  <main>
-    {{{body}}}
-  </main>
-   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+     <nav>
+        <a href="/">Home |</a>
+        {{#if logged_in}}
+        <a href="/homepage">Dashboard</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">Login/Sign-up</a>
+        {{/if}}
+
+  </nav>
+
+   {{{body}}} 
+   <script src="/js/login.js"></script>
+ <script src="/js/logout.js"></script>
 </body>
 </html>
